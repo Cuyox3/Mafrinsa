@@ -58,11 +58,15 @@ to {
 
 /* --------------------------------------------------------------------------------------------------------------*/
 :root{
---celadon: #74d3aeff;
---taupe: #48392aff;
---champagne: #f6e7cbff;
---oscuro: #212121 ;
---rojo:hwb(0 0% 0%) ;
+--principal: #0466C8;
+--azul_claro: #0353A4;
+--azul_mediano: #023E7D;
+--azul_terceario: #002855 ;
+--azul_oscuro: #001233 ;
+--girs_oscuro: #33415C ;
+--gris_mediano: #5C677D ;
+--gris_terceario: #7D8597 ;
+--gris_claro: #979DAC ;
 }
 
 html{
