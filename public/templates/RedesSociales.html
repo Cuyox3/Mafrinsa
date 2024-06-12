@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes Sociales</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 60px; /* Aumentado el ancho */
+            height: 60px; /* Aumentado la altura */
+            border-radius: 50%;
+            background-color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: #ddd;
+        }
+
+        .social-icon {
+            width: 36px; /* Aumentado el ancho del icono */
+            height: 36px; /* Aumentado la altura del icono */
+        }
+
+        /* Estilos para dispositivos móviles */
+        @media (max-width: 600px) {
+            .social-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .social-link {
+                width: 50px; /* Aumentado el ancho para móviles */
+                height: 50px; /* Aumentado la altura para móviles */
+            }
+
+            .social-icon {
+                width: 30px; /* Aumentado el ancho del icono para móviles */
+                height: 30px; /* Aumentado la altura del icono para móviles */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Redes Sociales</h1>
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=100063931246984" class="social-link">
+                <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook" class="social-icon">
+            </a>
+            <a href="#" class="social-link">
+                <img src="https://img.icons8.com/color/48/000000/twitter.png" alt="Twitter" class="social-icon">
+            </a>
+            <a href="https://www.instagram.com/maf_automation/" class="social-link">
+                <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram" class="social-icon">
+            </a>
+            <a href="https://www.linkedin.com/company/maf-automation/" class="social-link">
+                <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn" class="social-icon">
+            </a>
+            <a href="https://maf.com.mx/" class="social-link">
+                <img src="https://img.icons8.com/color/48/000000/web.png" alt="Sitio Web" class="social-icon"> 
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
