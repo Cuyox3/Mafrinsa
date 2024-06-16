@@ -40,22 +40,46 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
 
-  background-color: var(--gris_oscuro);
-  color: white;
+  /*background-color: var(--gris_oscuro);*/
+  color: var(--gris_oscuro);
   
   margin: 15px;
-  height: 213px;
+  height: 200px;
   min-width: 140px;
 }
   .xxx h4{
     margin-bottom: 0;
     font-weight: 300;
   }
-
-
+  
+  .img1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra todo el espacio sin distorsionarse */
+    z-index: -1; /* Envía la imagen hacia atrás */
+  }
+  
+  .text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Ajusta el color del texto según sea necesario */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejorar la legibilidad */
+    z-index: 1; /* Asegura que el texto esté encima */
+  }
+  
   /* ANIMACION / EFECTO HOVER AQUI */
-
 
 .pre-footer{
   background-color: var(--azul_terceario);
@@ -64,3 +88,9 @@
   .logos-prefooter{
     height: 100px;
   }
+  
+  
+  
+  
+  
+  
