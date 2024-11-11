@@ -4,7 +4,11 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+
+.body::-webkit-scrollbar {
+  display: none;
+}
+
 :root{
     --principal: #0466C8;
     --azul_claro: #0353A4;
