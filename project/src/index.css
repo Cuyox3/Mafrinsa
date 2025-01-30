@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+  }
+  
+  body {
+    @apply text-white font-light;
+  }
+}
+
+.section {
+  @apply relative h-screen w-full bg-cover bg-center flex flex-col justify-end pb-32 px-8;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.btn {
+  @apply border-2 border-white px-8 py-2 text-sm tracking-wider hover:bg-white hover:text-black transition-colors duration-300;
+}
+
+.nav-link {
+  @apply text-sm tracking-wider hover:text-gray-300 transition-colors;
+}
