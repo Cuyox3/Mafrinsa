@@ -4,16 +4,15 @@ import { Link } from 'react-router-dom';
 export default function App() {
   return (
     <div className="bg-black min-h-screen">
+      
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 p-8">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           <h1 className="text-2xl font-bold tracking-wider">MAFRINSA</h1>
           <div className="flex gap-8">
-            <a href="#maquinaria" className="nav-link">MAQUINARIA</a>
-            <a href="#mantenimiento" className="nav-link">MANTENIMIENTO</a>
-            <a href="#ingenieria" className="nav-link">INGENIERÍA</a>
-            <a href="#refacciones" className="nav-link">REFACCIONES</a>
-            <a href="#manufactura" className="nav-link">MANUFACTURA</a>
+            <a href="#" className="nav-link my-auto">INICIO</a>
+            <a href="/AboutUs" className="nav-link my-auto">SOBRE NOSOTROS</a>
+            <a href="/Contacto" className="nav-link btn">CONTACTO</a>
           </div>
         </div>
       </nav>
@@ -53,7 +52,7 @@ export default function App() {
 
       {/* Refaccionamiento */}
       <section id="refacciones" className="section" style={{
-        backgroundImage: 'url("https://images.unsplash.com/photo-1455165814004-1126a7199f9b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&q=80")'
+        backgroundImage: 'url("https://images.unsplash.com/photo-1564182842519-8a3b2af3e228?q=80&w=2865&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&q=80")'
       }}>
         <div className="max-w-7xl mx-auto w-full">
           <h2 className="text-4xl md:text-6xl font-light mb-4">SERVICIO DE</h2>
