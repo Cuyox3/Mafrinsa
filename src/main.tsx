@@ -3,6 +3,10 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.tsx';
 import Maquinaria from './Maquinaria.tsx';
+import Mantenimiento from './Mantenimiento.tsx';
+import Soportes from './Soportes.tsx';
+import Refacciones from './Refacciones.tsx';
+import Manufactura from './Manufactura.tsx';
 import Contacto from './Contacto.tsx';
 import AboutUs from './AboutUs.tsx';
 import './index.css';
@@ -26,19 +30,19 @@ const router = createBrowserRouter([
   }, 
   {
     path: "/mantenimiento",
-    element: <div className="min-h-screen bg-black text-white p-8">Página de Mantenimiento Industrial</div>,
-  },
+    element: <Mantenimiento/>,
+  }, 
   {
     path: "/ingenieria",
-    element: <div className="min-h-screen bg-black text-white p-8">Página de Soportes de Ingeniería</div>,
+    element: <Soportes/>,
   },
   {
     path: "/refacciones",
-    element: <div className="min-h-screen bg-black text-white p-8">Página de Refaccionamiento</div>,
+    element: <Refacciones/>,
   },
   {
     path: "/manufactura",
-    element: <div className="min-h-screen bg-black text-white p-8">Página de Manufactura</div>,
+    element: <Manufactura/>,
   },
 ]);
 

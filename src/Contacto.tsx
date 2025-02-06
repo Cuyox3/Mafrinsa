@@ -41,7 +41,9 @@ function App() {
             {/* Navegacion */}
             <nav className="fixed top-0 w-full z-50 p-8">
                 <div className="flex justify-between items-center max-w-7xl mx-auto">
-                <h1 className="text-2xl font-bold tracking-wider">MAFRINSA</h1>
+                <a href="/">
+                  <h1 className="text-2xl font-bold tracking-wider">MAFRINSA</h1>
+                </a> 
                 <div className="flex gap-8">
                     <a href="/" className="nav-link my-auto">INICIO</a>
                     <a href="/AboutUs" className="nav-link my-auto">SOBRE NOSOTROS</a>
@@ -205,8 +207,8 @@ function App() {
                             </div>
                             <div>
                             <h4 className="font-medium mb-1">Email</h4>
-                            <p className="text-gray-400">info@automatizacionpro.com</p>
-                            <p className="text-gray-400">ventas@automatizacionpro.com</p>
+                            <p className="text-gray-400">info@mafrinsa.com</p>
+                            <p className="text-gray-400">ventas@mafrinsa.com</p>
                             </div>
                         </div>
 

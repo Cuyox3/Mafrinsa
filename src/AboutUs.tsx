@@ -15,8 +15,10 @@ function App() {
         {/* Navegacion */}
         <nav className="fixed top-0 w-full z-50 p-8">
             <div className="flex justify-between items-center max-w-7xl mx-auto">
-            <h1 className="text-2xl font-bold tracking-wider">MAFRINSA</h1>
-            <div className="flex gap-8">
+                <a href="/">
+                  <h1 className="text-2xl font-bold tracking-wider">MAFRINSA</h1>
+                </a> 
+                <div className="flex gap-8">
                 <a href="/" className="nav-link my-auto">INICIO</a>
                 <a href="/AboutUs" className="nav-link my-auto">SOBRE NOSOTROS</a>
                 <a href="/Contacto" className="nav-link btn">CONTACTO</a>
@@ -28,10 +30,10 @@ function App() {
         <main className="container mx-auto px-4 py-12">
           
           <div className="text-center mt-20 mb-20">
-            <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
+            <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
               Innovación en Automatización
             </h1>
-            <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
+            <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
               Industrial
             </h1>
             <p className="text-2xl text-gray-300 max-w-3xl mx-auto">
