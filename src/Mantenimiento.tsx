@@ -253,7 +253,7 @@ function App() {
                       <div className="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center">
                         <Mail className="w-5 h-5 text-blue-400" />
                       </div>
-                      <span>contacto@automatizacionpro.mx</span>
+                      <span>contacto@mafrinsa.mx</span>
                     </div>
                     <div className="flex items-center gap-3 text-gray-300">
                       <div className="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center">
