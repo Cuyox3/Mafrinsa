@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
-import { Factory, Cog, Bot, Combine, Network, Sandwich, Car, FlaskRound as Flask, Package, Box, Trees, Workflow, Cable, Cpu, Wrench } from 'lucide-react';
+import { Menu, X, Cog, Bot, Combine, Network, Sandwich, Car, FlaskRound as Flask, Package, Box, Trees, Workflow, Cable, Cpu, Wrench } from 'lucide-react';
+import { useState } from 'react';
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
+    
     <div className="min-h-screen bg-[#0A0F1E] text-white">
       {/* background */}
       <div className="fixed inset-0 z-0">
@@ -12,30 +15,55 @@ function App() {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNTkuNSAyOS41aC0xdi0xaDFWMjkuNXoiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] bg-repeat opacity-10" />
       </div>
 
-      <div className="relative z-10">
+      <div className="relative z-10 overflow-hidden">
         
-        {/* Navegacion */}
-        <nav className="fixed top-0 w-full z-50 p-8">
-            <div className="flex justify-between items-center max-w-7xl mx-auto">
-            <a href="/">
-              <h1 className="text-2xl font-bold tracking-wider">MAFRINSA</h1>
-            </a>            
-            <div className="flex gap-8">
-                <a href="/" className="nav-link my-auto">INICIO</a>
-                <a href="/AboutUs" className="nav-link my-auto">SOBRE NOSOTROS</a>
-                <a href="/Contacto" className="nav-link btn">CONTACTO</a>
+        {/* Navigation */}
+        <nav className="fixed top-0 w-full z-30 p-4 md:p-8">
+          <div className="flex justify-between items-center max-w-7xl mx-auto">
+            <h1 className="text-xl md:text-2xl font-bold tracking-wider text-white">MAF AUTOMATION</h1>
+            
+            {/* Desktop */}
+            <div className="hidden md:flex gap-8">
+              <a href="/" className="nav-link my-auto text-white">INICIO</a>
+              <a href="/AboutUs" className="nav-link my-auto text-white">SOBRE NOSOTROS</a>
+              <a href="/Contacto" className="nav-link btn text-white">CONTACTO</a>
             </div>
-            </div>
+
+            {/* Mobile */}
+            <button 
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden text-white focus:outline-none"
+            >
+              {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
+            </button>
+          </div>
         </nav>
+
+        {/* Mobile Menu */}
+        <div 
+          className={`fixed top-0 right-0 h-screen w-3/4 bg-black text-white transform ${
+            isMenuOpen ? "translate-x-0" : "translate-x-full"
+          } transition-transform duration-300 ease-in-out z-40 flex flex-col gap-6 p-6`}
+        >
+          <button 
+            onClick={() => setIsMenuOpen(false)}
+            className="self-end"
+          >
+            <X size={32} />
+            </button>
+          <a href="/" className="text-xl" onClick={() => setIsMenuOpen(false)}>INICIO</a>
+          <a href="/AboutUs" className="text-xl" onClick={() => setIsMenuOpen(false)}>SOBRE NOSOTROS</a>
+          <a href="/Contacto" className="text-xl" onClick={() => setIsMenuOpen(false)}>CONTACTO</a>
+        </div>
 
         {/* Main Content */}
         <main className="container mx-auto px-4 py-16">
-          {/* Hero Section */}
-          <div className="relative max-w-4xl mx-auto text-center mb-24">
+          {/* Hero  */}
+          <div className="relative max-w-4xl mx-auto text-center mb-14 md:mb-24">
             <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl" />
-            <div className="relative mt-20">
+            <div className="relative mt-12 md:mt-20">
               
-              <h1 className="text-6xl font-bold mb-6 leading-tight">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
                 Desarrollo de{' '}
                 <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">
                   Maquinaria
@@ -47,15 +75,15 @@ function App() {
             </div>
           </div>
 
-          {/* Services Section */}
-          <section className="mb-32">
-            <div className="text-center mb-16">
-              <h2 className="text-5xl font-bold text-gray-300 mb-4">Nuestros Servicios</h2>
-              
+          {/* Servicios */}
+          <section className="mb-24 md:mb-32">
+
+            <div className="text-center mb-8 md:mb-16">
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-300 mb-4">Nuestros Servicios</h2>
             </div>
 
             <div className="grid lg:grid-cols-3 gap-8">
-              {/* Custom Machinery */}
+              {/* Maquinaria Personalizada */}
               <div className="group relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative h-full bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-colors">
@@ -79,7 +107,7 @@ function App() {
                 </div>
               </div>
 
-              {/* Process Automation */}
+              {/* Automatizacion de Procesos */}
               <div className="group relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative h-full bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-colors">
@@ -103,7 +131,7 @@ function App() {
                 </div>
               </div>
 
-              {/* System Integration */}
+              {/* Integracion de Sistemas */}
               <div className="group relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-blue-500/20 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative h-full bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-colors">
@@ -129,18 +157,18 @@ function App() {
             </div>
           </section>
 
-          {/* Industries Section */}
+          {/* Industrias */}
           <section className="relative">
 
-            <div className="text-center mb-12">
+            <div className="text-center mb-8 md:mb-12">
               <h2 className="text-4xl font-bold mb-4">Industrias que Servimos</h2>
-              <p className="text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
                 Nuestra experiencia abarca múltiples sectores industriales, cada uno con sus desafíos únicos y requerimientos específicos
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Food Industry */}
+              {/* Alimenticia */}
               <div className="group bg-gradient-to-br from-indigo-500/5 to-transparent p-6 rounded-2xl hover:from-indigo-500/10 transition-colors duration-300 border border-white/5 hover:border-white/10">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="p-3 rounded-xl bg-indigo-500/10">
@@ -153,7 +181,7 @@ function App() {
                 </p>
               </div>
 
-              {/* Automotive Industry */}
+              {/* Automotriz */}
               <div className="group bg-gradient-to-br from-purple-500/5 to-transparent p-6 rounded-2xl hover:from-purple-500/10 transition-colors duration-300 border border-white/5 hover:border-white/10">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="p-3 rounded-xl bg-purple-500/10">
@@ -166,7 +194,7 @@ function App() {
                 </p>
               </div>
 
-              {/* Pharmaceutical Industry */}
+              {/* Farmaceutica */}
               <div className="group bg-gradient-to-br from-pink-500/5 to-transparent p-6 rounded-2xl hover:from-pink-500/10 transition-colors duration-300 border border-white/5 hover:border-white/10">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="p-3 rounded-xl bg-pink-500/10">
@@ -179,7 +207,7 @@ function App() {
                 </p>
               </div>
 
-              {/* Cardboard Industry */}
+              {/* Cartonera */}
               <div className="group bg-gradient-to-br from-blue-500/5 to-transparent p-6 rounded-2xl hover:from-blue-500/10 transition-colors duration-300 border border-white/5 hover:border-white/10">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="p-3 rounded-xl bg-blue-500/10">
@@ -192,7 +220,7 @@ function App() {
                 </p>
               </div>
 
-              {/* Packaging Industry */}
+              {/* Empaquetado */}
               <div className="group bg-gradient-to-br from-emerald-500/5 to-transparent p-6 rounded-2xl hover:from-emerald-500/10 transition-colors duration-300 border border-white/5 hover:border-white/10">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="p-3 rounded-xl bg-emerald-500/10">
@@ -205,7 +233,7 @@ function App() {
                 </p>
               </div>
 
-              {/* Wood Industry */}
+              {/* Maderera */}
               <div className="group bg-gradient-to-br from-amber-500/5 to-transparent p-6 rounded-2xl hover:from-amber-500/10 transition-colors duration-300 border border-white/5 hover:border-white/10">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="p-3 rounded-xl bg-amber-500/10">
@@ -220,18 +248,20 @@ function App() {
             </div>
           </section>
 
-          {/* CTA Section */}
+          {/* CTA */}
           <div className="relative max-w-4xl mx-auto mt-24">
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-3xl" />
             <div className="relative bg-[#0A0F1E]/80 backdrop-blur-xl p-12 rounded-3xl border border-white/10">
               <div className="text-center">
                 <h2 className="text-3xl font-bold mb-6">¿Listo para automatizar su industria?</h2>
-                <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
+                <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
                   Permítanos ayudarle a transformar su producción con soluciones de automatización personalizadas.
                 </p>
-                <button className="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105">
-                  Solicitar Consultoría
-                </button>
+                <a href="/Contacto">
+                  <button className="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105">
+                    Solicitar Consultoría
+                  </button>
+                </a>
               </div>
             </div>
           </div>
@@ -240,7 +270,7 @@ function App() {
         {/* Footer */}
         <footer className="mt-20 py-8 border-t border-white/5">
           <div className="container mx-auto px-4 text-center text-gray-400">
-            <p>© {new Date().getFullYear()} Mafrinsa. Todos los derechos reservados.</p>
+            <p>© {new Date().getFullYear()} MAF AUTOMATION. Todos los derechos reservados.</p>
           </div>
         </footer>
       </div>

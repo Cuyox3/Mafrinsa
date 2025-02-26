@@ -1,11 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.css';
-import { Cog, Cpu, Wind, Globe, Settings, Ruler, Gauge, ArrowRight, PenTool as Tool, Boxes, ShieldCheck } from 'lucide-react';
+import { Cog, Cpu, Wind, Globe, Ruler, Gauge, ArrowRight, PenTool as Tool, Boxes, ShieldCheck } from 'lucide-react';
+import {X, Menu} from 'lucide-react';
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <div className="min-h-screen bg-[#0A0F1E] text-white">
       {/* Background */}
@@ -15,36 +19,63 @@ function App() {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNTkuNSAyOS41aC0xdi0xaDFWMjkuNXoiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] bg-repeat opacity-20" />
       </div>
 
-      <div className="relative z-10">
+      <div className="relative z-10 overflow-hidden">
 
-      {/* Navegacion */}
-      <nav className="fixed top-0 w-full z-50 p-8">
-        <div className="flex justify-between items-center max-w-7xl mx-auto">
-          <a href="/">
-            <h1 className="text-2xl font-bold tracking-wider">MAFRINSA</h1>
-          </a>
-          <div className="flex gap-8">
-            <a href="/" className="nav-link my-auto">INICIO</a>
-            <a href="/AboutUs" className="nav-link my-auto">SOBRE NOSOTROS</a>
-            <a href="/Contacto" className="nav-link btn">CONTACTO</a>
-          </div>
+        {/* Navegacion */}
+        <nav className="fixed top-0 w-full z-30 p-4 md:p-8">
+            <div className="flex justify-between items-center max-w-7xl mx-auto">
+            <h1 className="text-xl md:text-2xl font-bold tracking-wider text-white">MAF AUTOMATION</h1>
+            
+            {/* Desktop */}
+            <div className="hidden md:flex gap-8">
+                <a href="/" className="nav-link my-auto text-white">INICIO</a>
+                <a href="/AboutUs" className="nav-link my-auto text-white">SOBRE NOSOTROS</a>
+                <a href="/Contacto" className="nav-link btn text-white">CONTACTO</a>
+            </div>
+
+            {/* Mobile */}
+            <button 
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="md:hidden text-white focus:outline-none"
+            >
+                {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
+            </button>
+            </div>
+        </nav>
+
+        {/* Mobile Menu */}
+        <div 
+            className={`fixed top-0 right-0 h-screen w-3/4 bg-black text-white transform ${
+            isMenuOpen ? "translate-x-0" : "translate-x-full"
+            } transition-transform duration-300 ease-in-out z-40 flex flex-col gap-6 p-6`}
+        >
+            <button 
+            onClick={() => setIsMenuOpen(false)}
+            className="self-end"
+            >
+            <X size={32} />
+            </button>
+            <a href="/" className="text-xl" onClick={() => setIsMenuOpen(false)}>INICIO</a>
+            <a href="/AboutUs" className="text-xl" onClick={() => setIsMenuOpen(false)}>SOBRE NOSOTROS</a>
+            <a href="/Contacto" className="text-xl" onClick={() => setIsMenuOpen(false)}>CONTACTO</a>
         </div>
-      </nav>
 
-      {/* Contenido */}
+        {/* Contenido */}
         <main className="container mx-auto px-4 py-16">
+
           {/* Hero  */}
-          <div className="relative max-w-4xl mx-auto text-center mb-24">
+          <div className="relative max-w-4xl mx-auto text-center mb-12 md:mb-20">
             <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl" />
             <div className="relative">
               
-              <h1 className="text-6xl font-bold mt-10 mb-6 leading-tight">
+              <h1 className="text-4xl md:text-6xl font-bold mt-16 mb-8 md:mb-6 leading-tight">
                 Servicios de{' '}
                 <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">
                   Refaccionamiento
                 </span>
               </h1>
-              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+
+              <p className="text-xl md:text-xl text-gray-400 max-w-2xl mx-auto">
                 Soluciones completas en refacciones y equipos industriales para mantener su operación en óptimo funcionamiento
               </p>
               
@@ -53,6 +84,7 @@ function App() {
 
           {/* Servicios */}
           <div className="grid lg:grid-cols-2 gap-8 mb-24">
+
             {/* Equipo de Control  */}
             <div className="group relative p-1 rounded-3xl bg-gradient-to-br from-indigo-500/20 via-transparent to-transparent hover:from-indigo-500/30 transition-all duration-300">
               <div className="relative bg-[#0A0F1E]/80 backdrop-blur-xl p-8 rounded-[1.4rem] border border-white/5">
@@ -172,6 +204,7 @@ function App() {
                 </div>
               </div>
             </div>
+
           </div>
 
           {/* CTA  */}
@@ -180,23 +213,26 @@ function App() {
             <div className="relative bg-[#0A0F1E]/80 backdrop-blur-xl p-12 rounded-3xl border border-white/10">
               <div className="text-center">
                 <h2 className="text-3xl font-bold mb-6">¿Necesita refacciones especializadas?</h2>
-                <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
+                <p className="text-gray-400 mb-8 max-w-2xl mx-auto text-xl">
                   Nuestro equipo de expertos está listo para ayudarle a encontrar la solución perfecta para sus necesidades de refaccionamiento.
                 </p>
-                <button className="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105">
-                  Solicitar Cotización
-                </button>
+                <a href="/Contacto">
+                  <button className="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 text-lg">
+                    Solicitar Cotización
+                  </button>
+                </a>
               </div>
             </div>
           </div>
         </main>
 
         {/* Footer */}
-        <footer className="mt-20 py-8 border-t border-white/5">
+        <footer className="mt-12 md:mt-20 py-8 border-t border-white/5">
           <div className="container mx-auto px-4 text-center text-gray-400">
             <p>© {new Date().getFullYear()} Mafrinsa. Todos los derechos reservados.</p>
           </div>
         </footer>
+
       </div>
     </div>
   );

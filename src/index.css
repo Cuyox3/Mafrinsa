@@ -30,7 +30,7 @@
 }
 
 .section {
-  @apply relative h-screen w-full bg-cover bg-center flex flex-col justify-end pb-32 px-8;
+  @apply relative h-screen w-full bg-cover bg-center flex flex-col justify-end pb-32 px-8 overflow-x-hidden;
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }

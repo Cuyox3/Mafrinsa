@@ -1,16 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.css';
-
-import { Wrench, Zap, Shield, Repeat, Sparkles, Clock, Activity, Factory, CheckCircle2,
+import { Menu, Zap, Shield, Repeat, Sparkles, Clock, Activity, X, CheckCircle2,
          AlertTriangle,Gauge,Power,ArrowRight,Phone, Mail, Calendar} from 'lucide-react';
 
 function App() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
   useEffect(() => {
       window.scrollTo(0, 0);
     }, []);
   return (
     <div className="min-h-screen bg-[#0B1120] text-white overflow-hidden">
-      {/* Background animado */}
+
+      {/* Background */}
       <div className="fixed inset-0 z-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_100%_200px,#1E3A8A,transparent)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_600px_at_0%_300px,#312E81,transparent)]" />
@@ -39,27 +41,54 @@ function App() {
 
       {/* Contenido */}
       <div className="relative z-10">
+
         {/* Navegacion */}
-        <nav className="fixed top-0 w-full z-50 p-8">
-            <div className="flex justify-between items-center max-w-7xl mx-auto">
-                <a href="/">
-                  <h1 className="text-2xl font-bold tracking-wider">MAFRINSA</h1>
-                </a> 
-                <div className="flex gap-8">
-                <a href="/" className="nav-link my-auto">INICIO</a>
-                <a href="/AboutUs" className="nav-link my-auto">SOBRE NOSOTROS</a>
-                <a href="/Contacto" className="nav-link btn">CONTACTO</a>
-            </div>
-            </div>
-        </nav>
+      <nav className="fixed top-0 w-full z-30 p-4 md:p-8">
+        <div className="flex justify-between items-center max-w-7xl mx-auto">
+          <h1 className="text-xl md:text-2xl font-bold tracking-wider text-white">MAF AUTOMATION</h1>
+          
+          {/* Desktop */}
+          <div className="hidden md:flex gap-8">
+            <a href="/" className="nav-link my-auto text-white">INICIO</a>
+            <a href="/AboutUs" className="nav-link my-auto text-white">SOBRE NOSOTROS</a>
+            <a href="/Contacto" className="nav-link btn text-white">CONTACTO</a>
+          </div>
+
+          {/* Mobile */}
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden text-white focus:outline-none"
+          >
+            {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      <div 
+        className={`fixed top-0 right-0 h-screen w-3/4 bg-black text-white transform ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        } transition-transform duration-300 ease-in-out z-40 flex flex-col gap-6 p-6`}
+      >
+        <button 
+          onClick={() => setIsMenuOpen(false)}
+          className="self-end"
+        >
+          <X size={32} />
+          </button>
+        <a href="/" className="text-xl" onClick={() => setIsMenuOpen(false)}>INICIO</a>
+        <a href="/AboutUs" className="text-xl" onClick={() => setIsMenuOpen(false)}>SOBRE NOSOTROS</a>
+        <a href="/Contacto" className="text-xl" onClick={() => setIsMenuOpen(false)}>CONTACTO</a>
+      </div>
 
         {/* Contenido */}
         <main className="container mx-auto px-4 py-16">
+
           {/* Hero Section */}
-          <div className="max-w-4xl mx-auto text-center mb-20 relative">
+          <div className="max-w-4xl mx-auto text-center mb-12 relative">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 blur-3xl -z-10" />
             
-            <h1 className="text-6xl font-bold mt-10 mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold mt-16 md:mt-20 mb-6 leading-tight">
               Servicios de{' '}
               <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 text-transparent bg-clip-text">
                 Mantenimiento Industrial
@@ -68,12 +97,12 @@ function App() {
             <p className="text-xl text-gray-400 mb-8">
               Soluciones integrales para mantener su planta operando al máximo rendimiento
             </p>
-            <div className="flex items-center justify-center gap-4 text-sm">
-              <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+            <div className="flex-column md:flex items-center justify-center gap-4 text-sm">
+              <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full mb-2 md:mb-0">
                 <CheckCircle2 className="w-4 h-4 text-green-400" />
                 <span>24/7 Soporte</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+              <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full mb-2 md:mb-0">
                 <Shield className="w-4 h-4 text-blue-400" />
                 <span>Garantía Total</span>
               </div>
@@ -86,10 +115,11 @@ function App() {
 
           {/* Servicios  */}
           <div className="grid md:grid-cols-2 gap-8 mb-20">
+
             {/* Mantenimiento Preventivo */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl blur-xl transition-all duration-500 group-hover:blur-2xl opacity-50 group-hover:opacity-70" />
-              <div className="relative bg-gray-900/50 backdrop-blur-xl p-8 rounded-2xl border border-white/10 hover:border-blue-500/50 transition-all duration-300 group-hover:translate-y-[-4px]">
+            <div className="group relative max-w-[calc(100vw-41px)]">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl blur-xl transition-all duration-500 group-hover:blur-2xl opacity-50 group-hover:opacity-70 " />
+              <div className="relative bg-gray-900/50 backdrop-blur-xl p-8 rounded-2xl border border-white/10 hover:border-blue-500/50 transition-all duration-300 group-hover:translate-y-[-4px] ">
                 <div className="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <Shield className="w-8 h-8 text-blue-400" />
                 </div>
@@ -102,7 +132,7 @@ function App() {
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3 text-gray-300 group-hover:translate-x-1 transition-transform">
                     <CheckCircle2 className="w-5 h-5 text-blue-400" />
-                    Inspecciones periódicas programadas
+                    Inspecciones periódicas 
                   </li>
                   <li className="flex items-center gap-3 text-gray-300 group-hover:translate-x-2 transition-transform delay-75">
                     <CheckCircle2 className="w-5 h-5 text-blue-400" />
@@ -123,7 +153,7 @@ function App() {
             </div>
 
             {/* Rehabilitación Eléctrica */}
-            <div className="group relative">
+            <div className="group relative max-w-[calc(100vw-41px)]">
               <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/10 to-red-500/10 rounded-2xl blur-xl transition-all duration-500 group-hover:blur-2xl opacity-50 group-hover:opacity-70" />
               <div className="relative bg-gray-900/50 backdrop-blur-xl p-8 rounded-2xl border border-white/10 hover:border-yellow-500/50 transition-all duration-300 group-hover:translate-y-[-4px]">
                 <div className="w-16 h-16 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -159,7 +189,7 @@ function App() {
             </div>
 
             {/* Limpiezas Generales */}
-            <div className="group relative">
+            <div className="group relative max-w-[calc(100vw-41px)]">
               <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-2xl blur-xl transition-all duration-500 group-hover:blur-2xl opacity-50 group-hover:opacity-70" />
               <div className="relative bg-gray-900/50 backdrop-blur-xl p-8 rounded-2xl border border-white/10 hover:border-green-500/50 transition-all duration-300 group-hover:translate-y-[-4px]">
                 <div className="w-16 h-16 bg-green-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -195,7 +225,7 @@ function App() {
             </div>
 
             {/* Reacondicionamiento */}
-            <div className="group relative">
+            <div className="group relative max-w-[calc(100vw-41px)]">
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl blur-xl transition-all duration-500 group-hover:blur-2xl opacity-50 group-hover:opacity-70" />
               <div className="relative bg-gray-900/50 backdrop-blur-xl p-8 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all duration-300 group-hover:translate-y-[-4px]">
                 <div className="w-16 h-16 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -229,15 +259,16 @@ function App() {
                 </div>
               </div>
             </div>
+            
           </div>
 
           {/* CTA */}
           <div className="relative" id="contact">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-2xl blur-3xl opacity-50" />
-            <div className="relative bg-gray-900/50 backdrop-blur-xl p-12 rounded-2xl border border-white/10">
+            <div className="relative bg-gray-900/50 backdrop-blur-xl p-6 rounded-2xl border border-white/10">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div className="text-left">
-                  <h2 className="text-3xl font-bold mb-6">¿Necesita nuestros servicios?</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-6">¿Necesita nuestros servicios?</h2>
                   <p className="text-gray-400 mb-8">
                     Nuestro equipo de expertos está listo para ayudarle a mantener su planta en óptimas condiciones.
                     Contáctenos para una evaluación personalizada.
@@ -297,7 +328,7 @@ function App() {
         {/* Footer */}
         <footer className="mt-20 py-8 border-t border-white/10 backdrop-blur-md">
           <div className="container mx-auto px-4 text-center text-gray-400">
-            <p>© {new Date().getFullYear()} Mafrinsa. Todos los derechos reservados.</p>
+            <p>© {new Date().getFullYear()} MAF AUTOMATION. Todos los derechos reservados.</p>
           </div>
         </footer>
       </div>
