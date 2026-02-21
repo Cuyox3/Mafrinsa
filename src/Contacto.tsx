@@ -17,8 +17,19 @@ function App() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    const phoneNumber = "525638533118";
+    const text = `Hola MAF AUTOMATION, me gustaría contactarlos para mi proyecto:
+Nombre: ${formState.name}
+Email: ${formState.email}
+Empresa: ${formState.company}
+Teléfono: ${formState.phone}
+Tipo de Proyecto: ${formState.projectType}
+Mensaje: ${formState.message}`;
+
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, '_blank');
+
     setIsSubmitting(false);
     setFormState({
       name: '',
@@ -245,7 +256,7 @@ function App() {
                             </div>
                             <div>
                             <h4 className="font-medium mb-1">Teléfono</h4>
-                            <p className="text-gray-400">+52 55 9079 6751</p>
+                            <p className="text-gray-400">+52 56 3853 3118</p>
                             </div>
                         </div>
 
