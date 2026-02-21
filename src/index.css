@@ -6,9 +6,11 @@
   0% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-20px);
   }
+
   100% {
     transform: translateY(0px);
   }
@@ -23,7 +25,7 @@
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
   }
-  
+
   body {
     @apply text-white font-light;
   }
@@ -41,4 +43,62 @@
 
 .nav-link {
   @apply text-sm tracking-wider hover:text-gray-300 transition-colors;
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.link {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  margin: 0;
+  border-radius: 12px;
+  width: auto;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  display: inline-flex;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  border: 2px solid transparent;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
+}
+
+.link:nth-of-type(1) {
+  animation-delay: 1.2s;
+}
+
+.link:nth-of-type(2) {
+  animation-delay: 1.4s;
+}
+
+.link:nth-of-type(3) {
+  animation-delay: 1.6s;
+}
+
+.link:nth-of-type(4) {
+  animation-delay: 1.8s;
+}
+
+.link:nth-of-type(5) {
+  animation-delay: 2.0s;
+}
+
+.link:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ff00ff;
+  box-shadow: 0 0 20px #ff00ff, 0 0 30px #00ffff;
 }
